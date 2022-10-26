@@ -5,7 +5,7 @@
     * css
     * javascript
   * templates
-    * 템플릿엔진 사용해서 작성된 파일들
+    * 템플릿엔진 사용해서 작성된 파일들(html)
   * dataset
     * 수집한 데이터
   
