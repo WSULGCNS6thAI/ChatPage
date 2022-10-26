@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>main</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Chat</title>
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
         <style>
-            h1 {
-                color: blueviolet;
+            textarea {
+                height: 90vh;
+                resize: none;
             }
         </style>
     </head>
     <body>
-        <h1>메인페이지</h1>
+        <textarea class="form-control"></textarea>
+        <form class="card p-2">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="내용">
+                <button type="submit" class="btn btn-primary">전송</button>
+            </div>
+        </form>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
     </body>
 </html>
