@@ -17,7 +17,6 @@ def main():
 def messageReceived(methods=['GET', 'POST']):
     print('message was received!!!')
 
-#소켓아이오로 받기
 @socketio.on('message')
 def handle_message(msg):
     print('message: ' + str(msg))
