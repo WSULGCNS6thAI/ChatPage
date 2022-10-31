@@ -1,3 +1,5 @@
+# 김종무 작업공간
+
 from konlpy.tag import Komoran
 komoran = Komoran()
 

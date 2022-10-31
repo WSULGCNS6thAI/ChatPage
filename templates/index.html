@@ -1,3 +1,4 @@
+<!--html 틀 및 마크업 작성 - 김경호-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,10 +12,11 @@
                 resize: none;
             }
         </style>
-            </head>
+    </head>
     <body>
         
-        <!--[10/26 코드 id 값 다 내가 준거임] -->
+        <!--마크업 작성 - 김경호-->
+        <!--id 추가 - 오유빈-->
         <textarea class="form-control" id="messages"></textarea>
         <form class="card p-2" action="" method="POST">
             <div class="input-group">
@@ -22,11 +24,14 @@
                 <button type="submit" class="btn btn-primary" id="sendbutton">전송</button>
             </div>
         </form>
+
+        <!--CDN 링크 추가 - 오유빈-->
         <script src="https://cdn.socket.io/4.5.3/socket.io.min.js" integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!--Bootstrap 추가 - 김경호-->
         <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 
-        <!-- [10/26 코드 자바스크립트]-->
+        <!--제이쿼리 작성 - 오유빈-->
         <script type="text/javascript">
             $(document).ready(function() {
             
