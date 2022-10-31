@@ -11,13 +11,40 @@
                 resize: none;
             }
         </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js" integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.esm.min.js" integrity="sha512-EVjQjZiwMUGYufNy3ZVldmo82nwDCKOQ/dz0l/46gyBQ4z2HSlyFTmW782bb6Ps2mgpMM7Rm40FOpE7kjcyidA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.min.js" integrity="sha512-GtM/5c/Ie0lStj6QwEG0HkpMQuGr9vrOAgFD4nNmImviyZvsJxN7TYU7b+R7Kthob0zFBUpuxfl3R3Mn1qekTw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.msgpack.min.js" integrity="sha512-YPu0J0LOxxyTGFsRtZaPSklXe/Ge53ds5pwMd6R3iKwus375LuJou9ItXs02WHXvI80BLaxiWHH2td1ORf1Myw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
     <body>
-        <textarea class="form-control"></textarea>
+        <!-- [10/26 코드 자바스크립트]
+        <script type="text/javascript">
+            $(document).ready(function() {
+            
+                var socket = io.connect('http://127.0.0.1:5000');
+            
+                socket.on('connect', function() {
+                    socket.send('User has connected!');
+                });
+            
+                socket.on('message', function(msg) {
+                    $("#messages").append('<li>'+msg+'</li>');
+                    console.log('Received message');
+                });
+            
+                $('#sendbutton').on('click', function() {
+                    socket.send($('#myMessage').val());
+                    $('#myMessage').val('');
+                });
+            
+            });
+        </script>
+        [10/26 코드 id 값 다 내가 준거임] -->
+        <textarea class="form-control" id="messages"></textarea>
         <form class="card p-2">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="내용">
-                <button type="submit" class="btn btn-primary">전송</button>
+                <input type="text" class="form-control" placeholder="내용" id="myMessage">
+                <button type="submit" class="btn btn-primary" id="sendbutton">전송</button>
             </div>
         </form>
         <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
