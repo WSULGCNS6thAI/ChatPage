@@ -13,11 +13,10 @@
             }
         </style>
     </head>
-    <body>
-        
+    <body>    
         <!--마크업 작성 - 김경호-->
         <!--id 추가 - 오유빈-->
-        <textarea class="form-control" id="messages"></textarea>
+        <textarea readonly class="form-control" id="messages"></textarea>
         <form class="card p-2" action="" method="POST">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="내용" id="myMessage">
@@ -33,10 +32,9 @@
 
         <!--제이쿼리 작성 - 오유빈-->
         <script type="text/javascript">
-            $(document).ready(function() {
-            
-                var socket = io.connect('http://127.0.0.1:5000');
-            
+            $(document).ready(function() {           
+                var socket = io.connect('http://' + document.domain + ':' + location.port);
+
                 socket.on('connect', function() {
                     socket.emit('my event', {
                         data: 'User Connected'
@@ -55,13 +53,6 @@
                     console.log(msg)
                     $('textarea#messages').append(msg.message + '&#10;')
                 })
-                
-                /*
-                $('#sendbutton').on('click', function() {
-                    socket.send($('#myMessage').val());
-                    $('#myMessage').val('');
-                });
-                */   
             })
         </script>
     </body>
