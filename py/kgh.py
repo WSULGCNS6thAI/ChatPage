@@ -1,4 +1,4 @@
-# 김경호 작업공간
+# 김경호 22.10.31 ~ 22.11.07
 # mysql DB 연결 예제 코드
 
 import pymysql
@@ -21,5 +21,6 @@ sql_level2 = '''
 '''
 
 cur.execute(sql_level1)
+cur.execute(sql_level2)
 conn.commit()
 conn.close()

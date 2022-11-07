@@ -1,11 +1,11 @@
-# 모듈 임포트 - 김경호
+# 모듈 임포트 - 김경호 22.10.26
 from flask import Flask, render_template
 from flask_socketio import SocketIO
 
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-# 메인페이지 출력 - 김경호
+# 메인페이지 출력 - 김경호 22.10.26
 @app.route('/')
 def sessions():
     return render_template('index.html')
