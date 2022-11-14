@@ -110,6 +110,3 @@ if a == '학교':
                 print('찾으시는 정보가 없으므로 학과 초기질문으로 돌아갑니다.')
                 study_type()
     study_type()
-            # 학과, 학사로 roof or while
-                
-            
