@@ -1,3 +1,4 @@
+# 22.11.14 강민구
 import pymysql
 
 conn=pymysql.connect(host='127.0.0.1',user='root',

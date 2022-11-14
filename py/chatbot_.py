@@ -1,4 +1,4 @@
-#11-14
+#11-14 조영수
 import pymysql
 conn = pymysql.connect(host='127.0.0.1', user='root', password='csr04758015!',db='chatDB',charset='utf8')
 cur = conn.cursor()
