@@ -1,4 +1,5 @@
 # 22.11.14 김경호
+# pymysql 예제 코드
 
 import pymysql
 

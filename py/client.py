@@ -1,4 +1,5 @@
 # 김경호 2022.11.07
+# 채팅 프로그램 클라이언트
 from socket import *
 import threading
 import time
