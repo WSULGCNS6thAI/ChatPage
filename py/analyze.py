@@ -1,10 +1,15 @@
+# 22.10.31 김경호 (###)
+# 여기부터 (###)
 from konlpy.tag import Komoran
 komoran = Komoran()
 text = '건물 번호 알려줘'
 print(komoran.morphs(text))
 print(komoran.pos(text))
 print(komoran.nouns(text))
+# 여기까지 (###)
 
+# 22.11.07 김종무 (***)
+# 여기부터 (***)
 text = '교육 과정 알려줘'
 print(komoran.morphs(text))
 print(komoran.pos(text))
@@ -64,5 +69,4 @@ text = '우송대 남녀 비율 알려줘'
 print(komoran.morphs(text))
 print(komoran.pos(text))
 print(komoran.nouns(text))
-
-text = ''
+# 여기까지 (***)
