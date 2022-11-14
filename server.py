@@ -4,6 +4,8 @@ from socket  import *
 import threading
 import time
 
+userInput = '' # 22.11.14 김경호
+
 def send(sock):
     while True:
         sendData = input('>>>')
@@ -12,11 +14,10 @@ def send(sock):
 def receive(sock):
     while True:
         recvData = sock.recv(1024)
-        global userInput
-        userInput = recvData.decode('utf-8')
-        print('상대방 :', userInput)
+        global userInput # 22.11.14 김경호
+        userInput = recvData.decode('utf-8') # 22.11.14 김경호
+        print('상대방 :', userInput) # 22.11.14 김경호
 
-userInput = ''
 port = 8081
 
 serverSock = socket(AF_INET, SOCK_STREAM)
