@@ -1,0 +1,59 @@
+<!--html 틀 및 마크업 작성 - 김경호 22.10.26-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Chat</title>
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <style>
+            textarea {
+                height: 90vh;
+                resize: none;
+            }
+        </style>
+    </head>
+    <body>    
+        <!--마크업 작성 - 김경호 22.10.26-->
+        <!--id 추가 - 오유빈-->
+        <textarea readonly class="form-control" id="messages"></textarea>
+        <form class="card p-2" action="" method="POST">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="내용" id="myMessage">
+                <button type="submit" class="btn btn-primary" id="sendbutton">전송</button>
+            </div>
+        </form>
+
+        <!--CDN 링크 추가 - 오유빈-->
+        <script src="https://cdn.socket.io/4.5.3/socket.io.min.js" integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!--Bootstrap 추가 - 김경호 22.10.26-->
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+
+        <!--제이쿼리 작성 - 김경호, 오유빈 22.10.31-->
+        <script type="text/javascript">
+            $(document).ready(function() {           
+                var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+                socket.on('connect', function() {
+                    socket.emit('my event', {
+                        data: 'User Connected'
+                    })
+                    var form = $('form').on('submit', function(e) {
+                        e.preventDefault()
+                        let user_input = $('input#myMessage').val()
+                        socket.emit('my event', {
+                            message : user_input
+                        })
+                        $('input#myMessage').val('').focus()
+                    })
+                })
+            
+                socket.on('my response', function(msg) {
+                    console.log(msg)
+                    $('textarea#messages').append(msg.message + '&#10;')
+                })
+            })
+        </script>
+    </body>
+</html>
