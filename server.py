@@ -4,6 +4,7 @@ import threading
 import time
 import logic_test # 22.11.21 김경호
 
+global currentLevel
 currentLevel = 1
 db_search = []
 
@@ -18,11 +19,23 @@ def receive(sock):
         userInput = recvData.decode('utf-8') # 22.11.14 김경호
         #print('상대방 :', userInput) # 22.11.14 김경호
         # 22.11.21 김경호
+        global currentLevel
         if currentLevel == 1:
             db_search.append(logic_test.logic1(userInput))
             currentLevel += 1
             print(db_search)
-
+        elif currentLevel == 2:
+            db_search.append(logic_test.logic2(userInput))
+            print(db_search, currentLevel)
+            currentLevel += 1
+        elif currentLevel == 3:
+            db_search.append(logic_test.logic3(userInput))
+            print(db_search, currentLevel)
+            currentLevel += 1
+        elif currentLevel == 4:
+            # 쿼리 날리기
+            currentLevel = 1
+            pass
 port = 8081
 
 serverSock = socket(AF_INET, SOCK_STREAM)
