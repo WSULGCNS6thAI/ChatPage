@@ -1,0 +1,43 @@
+# 22.11.21 김경호 로직 설계
+if userInput == '시설'
+    level1.id = 2 and level2.table1_id = 2
+
+    if userInput == '건물위치'
+        level2.id = 3 and level3.table2_id = 3
+
+    if userInput == '대중교통'
+        level2.id = 4 and level3.table2_id = 4
+
+    if userInput == '주요시설'
+        level2.id = 5 and level3.table2_id = 5
+
+        if userInput == '우송도서관'
+            level3.id = 8 and level4.table3_id = 8
+
+if userInput == '학교'
+    level1.id = 1 and level2.table1_id = 1
+
+    if userInput == '학과'
+        level2.id = 1 and level3.table2_id = 1
+
+        if userInput == '컴퓨터정보보안'
+            level3.id = 23 and level4.table3_id = 23
+    
+    if userInput == '학사'
+        level2.id = 2 and level3.table2_id = 2
+
+        if userInput == '졸업'
+            level3.id = 5 and level4.table3_id = 5
+
+
+
+실제 개발할 때는 현재 파일의 userInput은 사용자에게 직접적으로 입력 받는것이 아닌
+komoran 모듈 사용해서 입력받은 문장에 특정 단어가 포함되어 있으면 해당 분기로 이동
+예)
+    사용자로부터 "시설에 관해서 알고싶어" 라는 문장을 입력받고
+    komoran 모듈로 분석하면
+        komoran = Komoran()
+        text = '시설에 관해서 알고싶어'
+        print(komoran.nouns(text))
+        >>> ['시설']
+            이라는 실행결과를 얻을 수 있으므로 시설 관련 분기로 이동하도록 구현
