@@ -3,7 +3,9 @@ from socket import *
 import threading
 import time
 import logic_test # 22.11.21 김경호
+import answer_query # 22.11.21 김경호
 
+# 22.11.21 김경호
 global currentLevel
 currentLevel = 1
 db_search = []
@@ -31,11 +33,9 @@ def receive(sock):
         elif currentLevel == 3:
             db_search.append(logic_test.logic3(userInput))
             print(db_search, currentLevel)
-            currentLevel += 1
-        elif currentLevel == 4:
-            # 쿼리 날리기
+            print(answer_query.search(db_search))
             currentLevel = 1
-            pass
+
 port = 8081
 
 serverSock = socket(AF_INET, SOCK_STREAM)
