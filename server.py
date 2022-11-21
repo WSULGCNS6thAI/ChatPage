@@ -20,7 +20,6 @@ def receive(sock):
         # 22.11.21 김경호
         if currentLevel == 1:
             db_search.append(logic_test.logic1(userInput))
-            global currentLevel
             currentLevel += 1
             print(db_search)
 
