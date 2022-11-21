@@ -1,10 +1,11 @@
 # #[11/07] 오유빈 코드 작성
-
-from socket  import *
+from socket import *
 import threading
 import time
+import logic_test # 22.11.21 김경호
 
-userInput = '' # 22.11.14 김경호
+currentLevel = 1
+db_search = []
 
 def send(sock):
     while True:
@@ -14,9 +15,14 @@ def send(sock):
 def receive(sock):
     while True:
         recvData = sock.recv(1024)
-        global userInput # 22.11.14 김경호
         userInput = recvData.decode('utf-8') # 22.11.14 김경호
-        print('상대방 :', userInput) # 22.11.14 김경호
+        #print('상대방 :', userInput) # 22.11.14 김경호
+        # 22.11.21 김경호
+        if currentLevel == 1:
+            db_search.append(logic_test.logic1(userInput))
+            global currentLevel
+            currentLevel += 1
+            print(db_search)
 
 port = 8081
 
