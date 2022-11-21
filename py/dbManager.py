@@ -1,5 +1,5 @@
 import pymysql
-conn = pymysql.connect(host='127.0.0.1', user='root', password='csr04758015!',db='chatdb',charset='utf8')
+conn = pymysql.connect(host='127.0.0.1', user='root', password='qlalfqjsgh1!',db='chatdb',charset='utf8')
 cur = conn.cursor()
 
 sql_create_level1 = '''
@@ -196,24 +196,6 @@ with cur:
     cur.executemany("INSERT INTO level2(question, table1_id) VALUES(%s, %s)", level2_vals)
     cur.executemany("INSERT INTO level3(question, table2_id) VALUES(%s, %s)", level3_vals)
     cur.executemany("INSERT INTO level4(question, table3_id) VALUES(%s, %s)", level4_vals)
-    
 
 conn.commit()
 conn.close()
-
-
-
-
-'''
-테이블 조인
-
-USE chatdb;
-SELECT level1.question, level2.question, level3.question, level4.question
-FROM level1
-LEFT JOIN level2
-ON level1.id = level2.table1_id
-LEFT JOIN level3
-ON level2.id = level3.table2_id
-LEFT JOIN level4
-ON level3.id = level4.table3_id
-'''
