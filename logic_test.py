@@ -1,8 +1,6 @@
 # 22.11.21 김경호
 from konlpy.tag import Komoran
-import pymysql
 
-conn = pymysql.connect(host='127.0.0.1', user='root', password='csr04758015!',db='chatdb',charset='utf8')
 komoran = Komoran(userdic='dataset/dic.user')
 
 def logic1(userInput):
@@ -21,13 +19,13 @@ def logic2(userInput):
     if '학과' in nouns:
         return 1
     elif '학사' in nouns:
-        return 1
+        return 2
     elif '건물 위치' in nouns:
-        return 2
+        return 3
     elif '대중교통' in nouns:
-        return 2
+        return 4
     elif '주요시설' in nouns:
-        return 2
+        return 5
     #level3.id 
 def logic3(userInput):
     nouns = komoran.nouns(userInput)
