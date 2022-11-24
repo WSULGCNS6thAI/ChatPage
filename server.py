@@ -4,6 +4,7 @@ import threading
 import time
 import logic_test # 22.11.21 김경호
 import answer_query # 22.11.21 김경호
+import dbManager
 
 # 22.11.21 김경호
 global currentLevel
@@ -35,6 +36,7 @@ def receive(sock):
             print(db_search, currentLevel)
             print(answer_query.search(db_search))
             currentLevel = 1
+            db_search.clear()
 
 port = 8081
 
