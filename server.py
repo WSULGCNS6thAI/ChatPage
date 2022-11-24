@@ -4,7 +4,6 @@ import threading
 import time
 import logic_test # 22.11.21 김경호
 import answer_query # 22.11.21 김경호
-import dbManager
 
 # 22.11.21 김경호
 global currentLevel
@@ -26,17 +25,19 @@ def receive(sock):
         if currentLevel == 1:
             db_search.append(logic_test.logic1(userInput))
             currentLevel += 1
-            print(db_search)
+            #print(db_search, currentLevel)
         elif currentLevel == 2:
             db_search.append(logic_test.logic2(userInput))
-            print(db_search, currentLevel)
+            #print(db_search, currentLevel)
             currentLevel += 1
         elif currentLevel == 3:
             db_search.append(logic_test.logic3(userInput))
-            print(db_search, currentLevel)
-            print(answer_query.search(db_search))
+            #print(db_search, currentLevel)
+            result = str(answer_query.search(db_search)) # 22.11.24 김경호
+            output = result.replace('(', '').replace(')', '').replace(',', '').replace("'", '') # 22.11.24 김경호
+            print(output)
             currentLevel = 1
-            db_search.clear()
+            db_search.clear() # 22.11.24 김경호
 
 port = 8081
 
