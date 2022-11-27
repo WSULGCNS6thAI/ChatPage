@@ -2,7 +2,7 @@
 from socket import *
 import threading
 import time
-import logic_test # 22.11.21 김경호
+import logic # 22.11.21 김경호
 import answer_query # 22.11.21 김경호
 
 # 22.11.21 김경호
@@ -23,15 +23,15 @@ def receive(sock):
         # 22.11.21 김경호
         global currentLevel
         if currentLevel == 1:
-            db_search.append(logic_test.logic1(userInput))
+            db_search.append(logic.logic1(userInput))
             currentLevel += 1
             #print(db_search, currentLevel)
         elif currentLevel == 2:
-            db_search.append(logic_test.logic2(userInput))
+            db_search.append(logic.logic2(userInput))
             #print(db_search, currentLevel)
             currentLevel += 1
         elif currentLevel == 3:
-            db_search.append(logic_test.logic3(userInput))
+            db_search.append(logic.logic3(userInput))
             #print(db_search, currentLevel)
             result = str(answer_query.search(db_search)) # 22.11.24 김경호
             output = result.replace('(', '').replace(')', '').replace(',', '').replace("'", '') # 22.11.24 김경호

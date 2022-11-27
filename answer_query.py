@@ -1,6 +1,6 @@
 # 22.11.21 김경호
 import pymysql
-conn = pymysql.connect(host='127.0.0.1', user='root', password='qlalfqjsgh1!',db='chatdb',charset='utf8') 
+conn = pymysql.connect(host='127.0.0.1', user='root', password='0000',db='chatdb',charset='utf8') 
 
 def search(arr):
     cur = conn.cursor()

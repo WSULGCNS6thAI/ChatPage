@@ -1,5 +1,5 @@
 import pymysql
-conn = pymysql.connect(host='127.0.0.1', user='root', password='qlalfqjsgh1!',db='chatdb',charset='utf8')
+conn = pymysql.connect(host='127.0.0.1', user='root', password='0000',db='chatdb',charset='utf8')
 cur = conn.cursor()
 
 sql_create_level1 = '''
