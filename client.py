@@ -21,7 +21,7 @@ port = 8081
 clientSocket = socket(AF_INET, SOCK_STREAM) # 소켓 생성
 clientSocket.connect(('127.0.0.1', port))
 
-print('접속 완료')
+print('학교 관련? 시설 관련?')
 
 sender = threading.Thread(target=send, args=(clientSocket,))
 receiver = threading.Thread(target=receive, args=(clientSocket,))
