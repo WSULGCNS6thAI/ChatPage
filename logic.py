@@ -10,7 +10,7 @@ def logic1(userInput):
         return 2
     
     #level1.id = 1
-    elif '학교' in nouns:
+    elif '학교' in nouns or '우송대' in nouns or '우송대학교' in nouns:
         return 1
 #11-21 조영수 level 2,3추가
 def logic2(userInput):
@@ -73,7 +73,7 @@ def logic3(userInput):
         return 21
     elif '대전화병원' in nouns or '화병원' in nouns or '전화' in nouns or '병원' in nouns:
         return 22
-    elif '컴퓨터정보보안' in nouns or '컴정' in nouns or '컴퓨터' in nouns or '정보' in nouns or '보안' in nouns:
+    elif '컴퓨터정보보안' in nouns or '컴정' in nouns or '컴퓨터' in nouns or '정보' in nouns:
         return 23
     elif 'AI빅데이터' in nouns or 'AI' in nouns or '빅' in nouns or '데이터' in nouns:
         return 24
