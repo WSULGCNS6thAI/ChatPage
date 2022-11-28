@@ -54,6 +54,8 @@ def receive(sock):
             result = str(answer_query.search(db_search)) # 22.11.24 김경호
             output = result.replace('(', '').replace(')', '').replace(',', '').replace("'", '') # 22.11.24 김경호
             sock.send(output.encode('utf-8'))
+            output = '학교 관련? 시설 관련?'
+            sock.send(output.encode('utf-8'))
             currentLevel = 1
             db_search.clear() # 22.11.24 김경호
 
