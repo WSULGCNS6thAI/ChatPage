@@ -12,7 +12,7 @@ def send(socket):
 def receive(socket):
     while True:
         receiveData = socket.recv(1024) # 1024바이트 사이즈 버퍼
-        print('상대방 : ', receiveData.decode('utf-8'))
+        print('챗봇 : ', receiveData.decode('utf-8'))
 
 port = 8081
 
