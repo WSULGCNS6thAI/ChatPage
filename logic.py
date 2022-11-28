@@ -24,7 +24,7 @@ def logic2(userInput):
         return 3
     elif '대중교통' in nouns:
         return 4
-    elif '주요시설' in nouns:
+    elif '시설' in nouns:
         return 5
     #level3.id 
 def logic3(userInput):
