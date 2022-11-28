@@ -11,6 +11,6 @@ def search(arr):
         result = cur.fetchone() # 22.11.24 김경호
 
     conn.commit()
-    conn.close()
+    #conn.close()
 
     return result # 22.11.24 김경호
