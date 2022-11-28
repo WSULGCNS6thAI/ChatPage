@@ -9,10 +9,11 @@ import answer_query # 22.11.21 김경호
 global currentLevel
 currentLevel = 1
 db_search = []
+global output
 
 def send(sock):
     while True:
-        sendData = input('>>>')
+        sendData = input()
         sock.send(sendData.encode('utf-8'))
 
 def receive(sock):
@@ -22,12 +23,17 @@ def receive(sock):
         #print('상대방 :', userInput) # 22.11.14 김경호
         # 22.11.21 김경호
         global currentLevel
+        global output
         if currentLevel == 1:
             db_search.append(logic.logic1(userInput))
+            output = '학과? 학사?'
+            sock.send(output.encode('utf-8'))
             currentLevel += 1
             #print(db_search, currentLevel)
         elif currentLevel == 2:
             db_search.append(logic.logic2(userInput))
+            output = 'ㅎㅇ'
+            sock.send(output.encode('utf-8'))
             #print(db_search, currentLevel)
             currentLevel += 1
         elif currentLevel == 3:
@@ -35,7 +41,7 @@ def receive(sock):
             #print(db_search, currentLevel)
             result = str(answer_query.search(db_search)) # 22.11.24 김경호
             output = result.replace('(', '').replace(')', '').replace(',', '').replace("'", '') # 22.11.24 김경호
-            print(output)
+            sock.send(output.encode('utf-8'))
             currentLevel = 1
             db_search.clear() # 22.11.24 김경호
 
